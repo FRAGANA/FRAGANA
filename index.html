@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragana</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="imj/fragana22.png"> <!-- Icono de la página -->
+    
+
+    <style>
+        /* Estilos generales */     
+        body {
+            font-family: 'Arial', sans-serif;
+        background-image: url('https://img.freepik.com/vector-gratis/vector-fondo-textura-acuarela-verde-suave-moderno_1055-18293.jpg?semt=ais_hybrid'); /* Cambia 'imj/fondo.jpg' por la ruta de tu imagen */
+        background-size: cover; /* La imagen cubrirá todo el fondo */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+        background-position: center; /* Centra la imagen en el fondo */
+        color: #2e4d2b; /* Texto oscuro verde */
+        margin: 0;
+        padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #3a6b3e; /* Verde oscuro */
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        /* Logo redondo */
+header {
+    display: flex; /* Permite alinear elementos en fila */
+    align-items: center; /* Centra verticalmente */
+}
+
+header .logo {
+    width: 60px; /* Tamaño del logo */
+    height: 60px; /* Asegura forma cuadrada */
+    border-radius: 50%; /* Hace la imagen redonda */
+    margin-right: 15px; /* Espacio entre logo y título */
+    object-fit: cover; /* Ajusta la imagen al contenedor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color:  white;
+            text-align: left; /* Alinea el texto a la izquierda */
+            flex-grow: 1; /* Permite que el título ocupe espacio disponible */
+        }
+
+        /* Menú de navegación */
+        nav {
+            background-color: #3a6b3e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            padding: 5px 0;
+        }
+
+
+        .navbar-nav .nav-link:hover {
+            color: #6aa84f; /* Verde más claro */
+            background-color: rgba(106, 168, 79, 0.15  ); /* Fondo suave al pasar el ratón */
+            border-radius: 3px;
+        }
+
+        /* Carruseles */
+        .carousel-inner img {
+    width: 100%;
+    height: 450px; /* Ajusta según sea necesario */
+    object-fit: contain; /* Muestra la imagen completa sin recortes */
+    border-radius: 15px; /* Bordes redondeados */
+    /*border: 5px solid #3a6b3e;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);/* Mantiene la sombra */
+    /*background-color: transparent; /* Fondo blanco detrás de imágenes */
+}
+
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #3a6b3e; /* Verde oscuro */
+        }
+
+        /* Secciones */
+        section {
+            padding: 60px 30px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #3a6b3e;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #2e4d2b;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn-primary {
+            background-color: #6aa84f; /* Verde claro */
+            border-color: #6aa84f; 
+            font-size: 1.1rem;
+            padding: 12px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #4e8e3f; /* Verde medio */
+            border-color: #4e8e3f;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más intensa al hacer hover */
+        }
+
+        /* Mapa */
+        .map-container {
+            height: 500px; /* Aumenta la altura del mapa */
+            background-color: #f4f9f4;
+            border-radius: 15px; /* Bordes redondeados */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra más intensa */
+            overflow: hidden;
+            margin-top: -50px; /* Mueve el mapa más arriba */
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background-color: #3a6b3e; /* Verde oscuro */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave superior */
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Estilos para formularios */
+        .form-label {
+            font-size: 1.1rem;
+            color: #3a6b3e;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 12px;
+            font-size: 1.1rem;
+        }
+
+        .form-control:focus {
+            border-color: #6aa84f;
+            box-shadow: 0 0 5px rgba(106, 168, 79, 0.5);
+        }
+
+        /* Mejoras para dispositivos móviles */
+        @media (max-width: 768px) {
+            
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .carousel-inner img {
+                height: 300px;
+            }
+
+            .btn-primary {
+                font-size: 1rem;
+                padding: 10px 18px;
+            }
+
+            /* Ajustar el mapa */
+            .map-container {
+                height: 350px; /* Menor altura para pantallas pequeñas */
+            }
+
+            /* Carruseles en pantallas pequeñas */
+            .carousel-inner img {
+                height: 250px; /* Reducir tamaño de imagen en el carrusel */
+            }
+
+        }
+    </style>
+    <style>
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #3a6b3e;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.nav-links li {
+  margin: 5px 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #3a6b3e;
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 2px 0; /* Cambia el margen vertical entre las opciones */
+  }
+  .nav-links a{
+    padding: 5px 5px; /* Reduce el relleno interno de los enlaces */
+  }
+}
+
+</style>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+    <img src="imj/fragana2.jpeg" alt="Logo Fragana" class="logo">
+    <h1>𝓕𝓻𝓪𝓰𝓪𝓷𝓪</i></h1>
+</header>
+
+
+    <!-- Menú de navegación -->
+    <nav class="navbar">
+      <a href="#" class="logo"></a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#ubicacion">Ubicacion</a></li>
+        <li><a href="#cabaña">Cabaña</a></li>
+        <li><a href="#quincho">Quincho</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <h1>¿𝓟𝓸𝓻 𝓺𝓾é 𝓮𝓵𝓮𝓰𝓲𝓻𝓷𝓸𝓼?</h1>
+    <div class="container">
+        <div class="card">
+            <div class="card-icon green">
+                <span>🏔</span>
+            </div>
+            <div class="card-title">Naturaleza</div>
+            <div class="card-text">Las cabañas Fragana cuentan con una ubicación privilegiada que ofrece vistas panorámicas al cerro, permitiendo disfrutar de amaneceres y atardeceres únicos desde la comodidad de su alojamiento.</div>
+        </div>
+        <div class="card">
+            <div class="card-icon orange">
+                <span>&#128715;</span>
+            </div>
+            <div class="card-title">Comodidad</div>
+            <div class="card-text">Fragana ofrece instalaciones modernas y acogedoras, como habitaciones amplias, cocinas completamente equipadas y espacios diseñados para garantizar su confort.</div>
+        </div>
+        <div class="card">
+            <div class="card-icon blue">
+                <span>⛱</span>
+            </div>
+            <div class="card-title">Versatilidad para Cada Ocasión</div>
+            <div class="card-text">Las cabañas Fragana están diseñadas para adaptarse a cualquier plan, desde disfrutar de un simple asado con amigos en el quincho, hasta celebrar eventos especiales como cumpleaños, siempre en un ambiente acogedor y bien equipado.</div>
+        </div>
+    </div>
+
+    <!-- Ubicación -->
+    <section id="ubicacion">
+        <h2>𝓤𝓫𝓲𝓬𝓪𝓬𝓲ó𝓷</h2>
+        <br>  
+        <br>      
+        <section class="map-container">   
+        <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12599.406259546236!2d-68.56641791930801!3d-31.588850499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9431b5871621c2d7%3A0xf3d06ca0d5d9efbc!2sVIDART%20y%20SAN%20MARTIN%2C%20Barrio%20Cerro%20Grande%2C%20Mza%20%C3%91%2C%20CSA%2019%2C%20Pocito%2C%20San%20Juan!5e0!3m2!1ses-419!2sar!4v1625123501319!5m2!1ses-419!2sar" 
+    allowfullscreen="" 
+    loading="lazy" 
+    width="100%" 
+    height="400" 
+    style="border:0;">
+</iframe>  
+
+<p>
+    <a href="https://www.google.com/maps?q=-31.5888505,-68.5642292&z=17&hl=es" 
+       target="_blank" 
+       style="text-decoration: none; color: blue; font-size: 16px;">
+        Ampliar mapa en Google Maps
+    </a>
+</p>
+
+ 
+</section>
+    </section>
+
+    <!-- Cabaña Principal -->
+    <section id="cabaña">
+        <h2>𝓒𝓪𝓫𝓪ñ𝓪 𝓟𝓻𝓲𝓷𝓬𝓲𝓹𝓪𝓵 </h2>
+        <div id="cabañaCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.48.24.jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.48.25 (1).jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.48.25.jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.49.20 (1).jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.49.21.jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.49.20.jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.49.21 (1).jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.49.21 (2).jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+                <div class="carousel-item">
+                    <img src="imj/WhatsApp Image 2025-01-22 at 13.49.21 (3).jpeg" class="d-block w-100" alt="Cabaña">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#cabañaCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#cabañaCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>    
+        <p><b>El alojamiento de Fragana ofrece todo lo necesario para una estancia cómoda y conectada. Con acceso a Wi-Fi, la cabaña cuenta con dos acogedoras habitaciones, un ante-baño y baño completo. El área de cocina-comedor está equipada con todo lo esencial, incluyendo TV, heladera, freezer, cafetera, pava eléctrica y un horno eléctrico, lo que permite disfrutar de la cocina casera en un ambiente práctico y moderno. Además, la cocina con horno es ideal para preparar deliciosas comidas. Para completar la experiencia, los huéspedes podrán relajarse en la pileta, disfrutando de un ambiente de descanso y confort.</b></p>
+    </section>
+
+    <!-- Quincho -->
+    <section id="quincho">
+        <h2>𝓠𝓾𝓲𝓷𝓬𝓱𝓸</h2>
+        <div id="quinchoCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/800x400?text=Quincho+1" class="d-block w-100" alt="Quincho">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/800x400?text=Quincho+2" class="d-block w-100" alt="Quincho">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/800x400?text=Quincho+3" class="d-block w-100" alt="Quincho">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#quinchoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#quinchoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <br>
+        <p><b>El quincho de Fragana es un espacio único que combina comodidad y naturaleza en un solo lugar. Con un parrillero y mesada ideal para disfrutar de asados, cuenta con un amplio mesón de madera que rodea a 20 cómodas sillas, creando el ambiente perfecto para compartir momentos especiales. Además, el área está complementada con un juego de jardín que invita al descanso, y camastros tanto individuales como dobles con pérgola, perfectos para relajarse bajo el sol. La piscina agrega un toque refrescante, mientras que la vista al cerro ofrece un paisaje espectacular que completa la experiencia de estar en un rincón lleno de paz y belleza.</p>
+    </section>
+
+    <!-- Footer -->
+        <!-- Redes Sociales -->
+        <section id="contacto">   </section>
+    <footer>
+        <!--<p>&copy; 2025 Tragana. Todos los derechos reservados.</p>-->
+        <div style="margin-top: 10px;">
+            <!--<p>Síguenos en nuestras redes sociales:</p>-->
+            <div style="display: flex; justify-content: center; gap: 20px; align-items: center; margin-top: 10px;">
+                    <a href="https://maps.app.goo.gl/RmQqqnK6Mq3LyxdU8" target="_blank" aria-label="Google Maps" class="social-icon" style="display: flex; align-items: center; text-decoration: none;">
+    <img src="imj/google.png" alt="Google Maps Icon" width="40" height="40" style="margin-right: 8px;">
+    <span style="font-family: Arial, sans-serif; font-size: 18px; color: #000;"></span>
+</a>
+
+                <a href="https://instagram.com/fragana" target="_blank" aria-label="Instagram" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" width="40" height="40">
+                </a>
+                <a href="https://wa.me/2645662794?text=%C2%A1Hola!%20Estoy%20interesado%20en%20la%20caba%C3%B1a%20Tragana." target="_blank" aria-label="WhatsApp" class="social-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40" height="40">
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Estilos de la animación -->
+    <style>
+        .social-icon img {
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .social-icon:hover img {
+            transform: scale(1.2); /* Escala el icono al pasar el mouse */
+            background-color: rgba(0, 0, 0, 0.1); /* Añade un fondo suave al pasar el mouse */
+        }
+    </style>
+
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!--color de fondo-->
+    <style>  
+        body {  
+            background-color: #b4ff9a; /* Cambia este valor por el color que desees */  
+            color: white; /* Color del texto */  
+            font-family: Arial, sans-serif; /* Fuente del texto */  
+            text-align: center; /* Centra el contenido */  
+            /*padding: 50px;*/ /* Espaciado alrededor del contenido */  
+        }  
+    </style> 
+    <style>
+    h1 {
+        font-size: 2.5rem;
+        color: #3a6b3e;
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 50px auto;
+        padding: 0 15px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        flex: 1 1 100%; /* Por defecto, ocupan todo el ancho */
+        max-width: 350px; /* Ancho máximo para evitar que se estiren */
+        box-sizing: border-box;
+    }
+
+    @media (min-width: 600px) {
+        .card {
+            flex: 1 1 calc(50% - 20px); /* Dos tarjetas por fila */
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .card {
+            flex: 1 1 calc(33.333% - 20px); /* Tres tarjetas por fila */
+        }
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        border: 2px solid;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+    .card-icon.green {
+        border-color: #6dbd41;
+        color: #6dbd41;
+    }
+
+    .card-icon.orange {
+        border-color: #f8a737;
+        color: #f8a737;
+    }
+
+    .card-icon.blue {
+        border-color: #009ee2;
+        color: #009ee2;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2b2b2b;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #636363;
+        margin-bottom: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #009ee2;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #007bb0;
+    }
+</style>
+          
+</body>
+</html>
+<script>
+// Selección de elementos
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+// Añadir un evento de clic al botón de menú
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active'); // Alterna la clase 'active' en la lista de navegación
+});
+
+
+</script>
