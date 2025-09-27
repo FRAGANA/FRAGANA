@@ -355,11 +355,25 @@ body {
 </iframe>  
 
 <p>
-    <a href="https://www.google.com/maps/place/31%C2%B035'17.7%22S+68%C2%B034'00.9%22W/@-31.588252,-68.5694807,742m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-31.588252!4d-68.5669058?hl=es&entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D" 
-       target="_blank" 
-       style="text-decoration: none; color: blue; font-size: 16px;">
-        Ampliar mapa en Google Maps
-    </a>
+    <a
+  href="#"
+  onclick="abrirRutaGoogleMaps(event)"
+  style="text-decoration: none; color: blue; font-size: 16px;">
+  Ampliar mapa en Google Maps
+</a>
+
+<script>
+  function abrirRutaGoogleMaps(e) {
+    e.preventDefault();
+    // Coordenadas de destino
+    const lat = -31.588252;
+    const lng = -68.5669058;
+    // Construir URL de rutas desde ubicación actual
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=driving`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+</script>
+    
 </p>
 
  
